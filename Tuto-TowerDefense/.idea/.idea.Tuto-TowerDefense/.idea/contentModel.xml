@@ -6,9 +6,12 @@
     <e p="D:\Arnaud\Documents\GitHub\AJCTuto-TowerDefense\Tuto-TowerDefense" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
+        <e p="EnemyManager.cs" t="Include" />
         <e p="Scripts" t="Include">
+          <e p="MouseInputManager.cs" t="Include" />
           <e p="SpawnerECS.cs" t="Include" />
         </e>
+        <e p="WeaponCompData_authoring.cs" t="Include" />
       </e>
       <e p="obj" t="ExcludeRecursive" />
       <e p="Packages" t="ExcludeRecursive" />
