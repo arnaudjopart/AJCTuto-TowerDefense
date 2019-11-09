@@ -19,8 +19,15 @@ public class WeaponCompData_authoring : MonoBehaviour, IConvertGameObjectToEntit
         {
             m_buildingTime = 1
         };
+        
+        var rotationToward =  new RotateTowardTargetComponent
+        {
+            m_targetPosition = Vector3.forward,
+            m_rotationSpeed = 1
+        };
         dstManager.AddComponentData(entity,data);
         dstManager.AddComponentData(entity,buildTime);
+        dstManager.AddComponentData(entity,rotationToward);
         
     }
 }

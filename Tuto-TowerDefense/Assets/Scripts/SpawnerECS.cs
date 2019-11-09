@@ -49,6 +49,10 @@ public class SpawnerECS : MonoBehaviour
     public void CreateTurretAt(Vector3 _spawnPosition)
     {
         Entity instance = CreateEntityFromPrefab(m_turretPrefab, _spawnPosition);
+        m_entityManager.SetComponentData(instance, new Rotation
+        {
+            Value = Quaternion.Euler(0,0,0)
+        });
         
     }
 
@@ -64,12 +68,15 @@ public class SpawnerECS : MonoBehaviour
 
         foreach (var entity in tanks)
         {
-            m_entityManager.AddComponentData(entity, new RotateTowardTargetComponent{m_targetPosition = Vector3.zero});
+            m_entityManager.AddComponentData(entity, new RotateTowardTargetComponent{
+                m_targetPosition = Vector3.zero,
+                m_rotationSpeed = .5f
+            });
             m_entityManager.AddComponentData(entity, new Enemy());
             m_entityManager.AddComponentData(entity, new MoveToPosition()
             {
                 m_position = Vector3.zero,
-                m_speed = 1f
+                m_speed = 5f
             });
         }
     }
@@ -82,6 +89,8 @@ public class SpawnerECS : MonoBehaviour
 public struct RotateTowardTargetComponent: IComponentData
 {
     public float3 m_targetPosition;
+    public Entity m_target;
+    public float m_rotationSpeed;
 }
 
 public struct MoveToPosition : IComponentData
@@ -96,16 +105,24 @@ public class RotateTowardTargetSystem : ComponentSystem
     protected override void OnUpdate()
     {
         Entities.ForEach((Entity _entity, ref RotateTowardTargetComponent _rotateToward, ref Translation _translation, 
-        ref Rotation _rotation) =>
+        ref Rotation _rotation, ref LocalToWorld _localToWorld) =>
         {
-            float3 direction = _rotateToward.m_targetPosition - _translation.Value;
-            Quaternion rotation = Quaternion.LookRotation(direction);
-            _rotation.Value = rotation;
+            if (EntityManager.Exists(_rotateToward.m_target))
+            {
+                Translation targetTranslation = EntityManager.GetComponentData<Translation>(_rotateToward.m_target);
+                _rotateToward.m_targetPosition = targetTranslation.Value;
+            }
+            
+            float3 direction = _rotateToward.m_targetPosition - _localToWorld.Position;
+            
+            Quaternion targetRotation = Quaternion.LookRotation(direction);
+            //Quaternion localRotation = math.mul(_rotation.Value,
+            _rotation.Value = Quaternion.Lerp(_rotation.Value,targetRotation,_rotateToward.m_rotationSpeed*Time.deltaTime);
         });
     }
 }
 
-public class MoveToPositionSystem : ComponentSystem
+/*public class MoveToPositionSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
@@ -113,6 +130,19 @@ public class MoveToPositionSystem : ComponentSystem
             ref Rotation _rotation) =>
         {
             float3 direction = math.normalize(_moveToPosition.m_position - _translation.Value);
+            _translation.Value += direction * _moveToPosition.m_speed * Time.deltaTime;
+        });
+    }
+}*/
+
+public class MoveForwardSystem : ComponentSystem
+{
+    protected override void OnUpdate()
+    {
+        Entities.ForEach((Entity _entity, ref MoveToPosition _moveToPosition, ref Translation _translation, 
+            ref Rotation _rotation) =>
+        {
+            float3 direction = math.mul(_rotation.Value,Vector3.forward);
             _translation.Value += direction * _moveToPosition.m_speed * Time.deltaTime;
         });
     }
@@ -132,18 +162,6 @@ public class FindTarget : ComponentSystem
             
             Entities.WithAll(typeof(Enemy)).ForEach((Entity _possibleTarget, ref Translation _possibleTargetTranslation) =>
             {
-                /*if (EntityManager.Exists(closestTarget) == false)
-                {
-                    Debug.Log("No closestTarget");
-                    closestTargetDistance = math.distance(position, _possibleTargetTranslation.Value);
-                    closestTarget = _possibleTarget;
-                }
-                else
-                {
-                    Debug.Log("closestTarget found -> check for nearest");
-                    
-                }*/
-                
                 if (math.distance(position, _possibleTargetTranslation.Value) < closestTargetDistance)
                 {
                     Debug.Log("found new target");
@@ -155,13 +173,15 @@ public class FindTarget : ComponentSystem
 
             if (EntityManager.Exists(closestTarget))
             {
-                Debug.Log("FindTarget -> Found Target");
+                
                 PostUpdateCommands.RemoveComponent(_entity, typeof(HasNoTarget));
-                /*PostUpdateCommands.SetComponent(_entity, component: new WeaponComponentData
-                {
-                    m_target = closestTarget
-                } );*/
                 _weaponComponent.m_target = closestTarget;
+                PostUpdateCommands.SetComponent(_entity, new RotateTowardTargetComponent
+                {
+                    m_target = closestTarget,
+                    m_rotationSpeed = 10
+                });
+                
             }
         });
     }
@@ -242,14 +262,41 @@ public class TurretFireSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        Entities.ForEach((Entity _entity, ref WeaponComponentData _weaponComponent) =>
+        Entities.WithNone(typeof(ReloadComponent)).ForEach((Entity _entity, ref WeaponComponentData _weaponComponent) =>
         {
-            if (EntityManager.Exists(_weaponComponent.m_target))
+            if (!EntityManager.Exists(_weaponComponent.m_target)) return;
+            
+            PostUpdateCommands.DestroyEntity(_weaponComponent.m_target);
+            PostUpdateCommands.AddComponent(_entity, new ReloadComponent
             {
-                PostUpdateCommands.DestroyEntity(_weaponComponent.m_target);
+                m_reloadTime =5
+            });
+        });
+    }
+}
+
+public class ReloadSystem : ComponentSystem
+{
+    protected override void OnUpdate()
+    {
+        Entities.ForEach((Entity _entity, ref ReloadComponent _component) =>
+        {
+            if (_component.m_currentTimeSpend < _component.m_reloadTime)
+            {
+                _component.m_currentTimeSpend += Time.deltaTime;
+            }
+            else
+            {
+                PostUpdateCommands.RemoveComponent(_entity,typeof(ReloadComponent));
             }
         });
     }
+}
+
+public struct ReloadComponent : IComponentData
+{
+    public float m_reloadTime;
+    public float m_currentTimeSpend;
 }
 
 
