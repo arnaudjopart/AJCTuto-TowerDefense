@@ -12,7 +12,7 @@ public class EnemyManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Vector3[] spawnPositions = new Vector3[100];
+        Vector3[] spawnPositions = new Vector3[1000];
         for (int i = 0; i < spawnPositions.Length; i++)
         {
             float randomAngle = UnityEngine.Random.Range(0, Mathf.PI*2);
