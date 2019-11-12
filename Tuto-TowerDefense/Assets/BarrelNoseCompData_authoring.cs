@@ -11,7 +11,7 @@ public class BarrelNoseCompData_authoring : MonoBehaviour, IConvertGameObjectToE
 {
     public void Convert(Entity entity, EntityManager dstManager, GameObjectConversionSystem conversionSystem)
     {
-        var data = new BarrelNose()
+        var data = new BarrelTip()
         {
             
         };

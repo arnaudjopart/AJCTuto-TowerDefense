@@ -18,6 +18,7 @@ public class SpawnerECS : MonoBehaviour
     private void Awake()
     {
         m_entityManager = World.Active.EntityManager;
+        //pour la partie #2
         TurretShootActionsNativeQueue = new NativeQueue<TurretShootTankAction>(Allocator.Persistent);
     }
     
@@ -51,16 +52,6 @@ public class SpawnerECS : MonoBehaviour
     public void CreateTurretAt(Vector3 _spawnPosition)
     {
         Entity instance = CreateEntityFromPrefab(m_turretPrefab, _spawnPosition);
-        m_entityManager.SetComponentData(instance, new Rotation
-        {
-            Value = Quaternion.Euler(0,0,0)
-        });
-        m_entityManager.AddComponentData(instance, new AutoRotateAroundYAxis
-        {
-            m_speedOfRotation = math.radians(0)
-        });
-        
-        
     }
 
     public Entity CreateTankAt(Vector3 _spawnPosition)
@@ -81,9 +72,9 @@ public class SpawnerECS : MonoBehaviour
             m_entityManager.AddComponentData(entity, new Enemy());
             m_entityManager.AddComponentData(entity, new MoveToPosition()
             {
-                m_position = Vector3.zero,
                 m_speed = 5f
             });
+            // Pour la partie #2
             m_entityManager.AddComponentData(entity, new Health()
             {
                 Value = 50
@@ -91,7 +82,7 @@ public class SpawnerECS : MonoBehaviour
         }
     }
 
-
+    // Pour la partie #2
     public static NativeQueue<TurretShootTankAction> TurretShootActionsNativeQueue; 
     private EntityManager m_entityManager;
 }
@@ -116,7 +107,6 @@ public struct RotateTowardTargetComponent: IComponentData
 
 public struct MoveToPosition : IComponentData
 {
-    public float3 m_position;
     public float m_speed;
 }
 
@@ -141,6 +131,7 @@ public class RotateTowardTargetSystem : ComponentSystem
         ComponentDataFromEntity<LocalToWorld> ltws = GetComponentDataFromEntity<LocalToWorld>(true);
         ComponentDataFromEntity<Translation> translations = GetComponentDataFromEntity<Translation>(true);
         
+        // If RotateTowardTargetComponent is on the parent of the prefab.
         Entities.WithNone<Parent>().ForEach((Entity _entity, ref RotateTowardTargetComponent _rotateToward, ref Translation 
         _translation, 
         ref Rotation _rotation, ref LocalToWorld _localToWorld) =>
@@ -158,45 +149,27 @@ public class RotateTowardTargetSystem : ComponentSystem
             _rotation.Value = Quaternion.Lerp(_rotation.Value,targetRotationInWorldSpace,_rotateToward.m_rotationSpeed*Time.deltaTime);
             
         });
-        
+        // If RotateTowardTargetComponent is on a child of the prefab.
         Entities.ForEach((Entity _entity, ref RotateTowardTargetComponent _rotateToward, ref Translation 
                 _translation, ref Rotation _rotation, ref LocalToWorld _localToWorld, ref Parent _parent) =>
         {
             if (EntityManager.Exists(_rotateToward.m_target)&&EntityManager.HasComponent<Translation>(_rotateToward.m_target))
             {
-                //Translation targetTranslation = EntityManager.GetComponentData<Translation>(_rotateToward.m_target);
-                float3 directionLTW = translations[_rotateToward.m_target].Value - _localToWorld.Position;
-                //float3 directionLTW = targetTranslation.Value - _localToWorld.Position;
+                float3 targetDirectionInWorldSpace = translations[_rotateToward.m_target].Value - _localToWorld.Position;
                 
-                Quaternion targetRotationLTW = Quaternion.LookRotation(directionLTW);
+                Quaternion targetRotationInWorldSpace = Quaternion.LookRotation(targetDirectionInWorldSpace);
 
-                //LocalToWorld parentLTW = EntityManager.GetComponentData<LocalToWorld>(_parent.Value);
                 LocalToWorld parentLTW = ltws[_parent.Value];
                 quaternion parentWorldRotation = Quaternion.LookRotation(parentLTW.Forward, parentLTW.Up);
 
-                quaternion appliedRotation = math.mul(targetRotationLTW, math.inverse(parentWorldRotation));
+                quaternion appliedRotation = math.mul(targetRotationInWorldSpace, math.inverse(parentWorldRotation));
                 
                 _rotation.Value = Quaternion.Lerp(_rotation.Value, appliedRotation,
                     _rotateToward.m_rotationSpeed * Time.deltaTime);
-
             }
-            
         });
     }
 }
-
-/*public class MoveToPositionSystem : ComponentSystem
-{
-    protected override void OnUpdate()
-    {
-        Entities.ForEach((Entity _entity, ref MoveToPosition _moveToPosition, ref Translation _translation, 
-            ref Rotation _rotation) =>
-        {
-            float3 direction = math.normalize(_moveToPosition.m_position - _translation.Value);
-            _translation.Value += direction * _moveToPosition.m_speed * Time.deltaTime;
-        });
-    }
-}*/
 
 public class MoveForwardSystem : ComponentSystem
 {
@@ -215,11 +188,11 @@ public class FindTarget : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        Entities.WithAll(typeof(HasNoTarget)).WithNone(typeof(BuildingComponent)).ForEach((Entity _entity, ref LocalToWorld
+        Entities.WithAll(typeof(HasNoTarget)).WithNone<InitComp>().ForEach((Entity _entity, ref LocalToWorld
          _localToWorld, ref WeaponComponentData _weaponComponent) =>
         {
             float3 position = _localToWorld.Position;
-            float closestTargetDistance =_weaponComponent.m_maxDistance ;
+            float closestTargetDistance =_weaponComponent.m_maxDetectionDistance ;
             
             Entity closestTarget = Entity.Null;
             
@@ -232,7 +205,6 @@ public class FindTarget : ComponentSystem
                     closestTargetDistance = math.distance(position, _possibleTargetTranslation.Value);
                     closestTarget = _possibleTarget;
                 }
-                
             });
 
             if (EntityManager.Exists(closestTarget))
@@ -251,10 +223,9 @@ public class FindTarget : ComponentSystem
     }
 }
 
-public struct BuildingComponent : IComponentData
+public struct InitComp : IComponentData
 {
-    public float m_buildingTime;
-    public float m_currentTime;
+    
 }
 
 public class CheckIfNoTarget : ComponentSystem
@@ -274,8 +245,7 @@ public class CheckIfNoTarget : ComponentSystem
 public struct WeaponComponentData : IComponentData
 {
     public Entity m_target;
-    public float m_maxDistance;
-    public Vector3 m_nosePosition;
+    public float m_maxDetectionDistance;
 }
 
 public struct Enemy : IComponentData
@@ -309,53 +279,42 @@ public class TargetDebugSystem : ComponentSystem
     }
 }
 
-[UpdateInGroup(typeof(LateSimulationSystemGroup))]
-public class TurretBuildSystem : ComponentSystem
+//[UpdateInGroup(typeof(LateSimulationSystemGroup))]
+public class TurretInitSystem : ComponentSystem
 {
-    
     protected override void OnUpdate()
     {
-       Entities.ForEach((Entity _entity, ref BuildingComponent _buildingComponent, ref SetupBuild _setupBuild) =>
+       Entities.WithAll<InitComp>().ForEach((Entity _entity, ref PrefabStructure _prefabStructure) =>
             {
-                _buildingComponent.m_currentTime += Time.deltaTime;
-                if (_buildingComponent.m_currentTime > _buildingComponent.m_buildingTime)
+                //Partie 2
+                /*DynamicBuffer<Child> children = EntityManager.GetBuffer<Child>(_entity);
+                Debug.Log(children.Length);
+                foreach (var child in children)
                 {
-                    //Debug.Log("Is ready");
-                    
-                    DynamicBuffer<Child> children = EntityManager.GetBuffer<Child>(_entity);
-                    Debug.Log(children.Length);
-                    foreach (var child in children)
+                    if (EntityManager.HasComponent(child.Value, typeof(BarrelTip)))
                     {
-                        //Debug.Log("Looking for nose");
-                        if (EntityManager.HasComponent(child.Value, typeof(BarrelNose)))
-                        {
-                            //Debug.Log("Found Nose");
-                            _setupBuild.m_nose = child.Value;
-                        }
+                        _prefabStructure.m_barrelTip = child.Value;
                     }
-                    
-                    PostUpdateCommands.RemoveComponent(_entity, typeof(BuildingComponent));
-                }
+                }*/
+                PostUpdateCommands.RemoveComponent(_entity, typeof(InitComp));
             });
-        
     }
 }
 
-public struct BarrelNose : IComponentData
+public struct BarrelTip : IComponentData
 {
 }
 
-public struct SetupBuild : IComponentData
+public struct PrefabStructure : IComponentData
 {
-    public Entity m_parent;
-    public Entity m_nose;
+    public Entity m_barrelTip;
 }
 
 public class TurretFireSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        Entities.WithNone(typeof(ReloadComponent)).ForEach((Entity _entity, ref WeaponComponentData _weaponComponent) =>
+        /*Entities.WithNone(typeof(ReloadComponent)).ForEach((Entity _entity, ref WeaponComponentData _weaponComponent) =>
         {
             if (!EntityManager.Exists(_weaponComponent.m_target)) return;
             
@@ -367,7 +326,7 @@ public class TurretFireSystem : ComponentSystem
                 m_target = _weaponComponent.m_target,
                 m_damages = 10
             });
-        });
+        });*/
     }
 }
 
@@ -445,12 +404,12 @@ public class ApplyShootSystem : ComponentSystem
     {
         Vector3 res = Vector3.zero;
 
-        if (EntityManager.HasComponent<SetupBuild>(_actionTurret))
+        if (EntityManager.HasComponent<PrefabStructure>(_actionTurret))
         {
-            SetupBuild build = EntityManager.GetComponentData<SetupBuild>(_actionTurret);
-            res = math.mul(EntityManager.GetComponentData<Rotation>(build.m_nose).Value, EntityManager
+            PrefabStructure build = EntityManager.GetComponentData<PrefabStructure>(_actionTurret);
+            res = math.mul(EntityManager.GetComponentData<Rotation>(build.m_barrelTip).Value, EntityManager
                 .GetComponentData<LocalToWorld>(build
-                    .m_nose).Position);
+                    .m_barrelTip).Position);
         }
         
         return res;

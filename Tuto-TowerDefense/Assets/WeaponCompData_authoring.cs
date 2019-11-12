@@ -14,25 +14,26 @@ public class WeaponCompData_authoring : MonoBehaviour, IConvertGameObjectToEntit
     {
         var data = new WeaponComponentData
         {
-            m_maxDistance = 50,
+            m_maxDetectionDistance = 50,
             //m_nosePosition = m_nose.position
         };
-        var buildTime = new BuildingComponent
-        {
-            m_buildingTime = 1
-        };
-        
-        var buildSetup = new SetupBuild()
+        var initComp = new InitComp
         {
             
         };
         
+        // Partie #2
+        var buildSetup = new PrefabStructure()
+        {
+            
+        };
+        // Partie #2
         var rotationToward =  new RotateTowardTargetComponent
         {
             m_rotationSpeed = 1
         };
         dstManager.AddComponentData(entity,data);
-        dstManager.AddComponentData(entity,buildTime);
+        dstManager.AddComponentData(entity,initComp);
         dstManager.AddComponentData(entity,rotationToward);
         dstManager.AddComponentData(entity,buildSetup);
         
