@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\arnau\.Rider2019.1\system\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\arnau\.Rider2019.1\system\resharper-host\Local\Transient\ReSharperHost\v191\SolutionCaches\_Tuto-TowerDefense.199796396.00" t="ExcludeRecursive" />
+    <e p="D:\Arnaud\Documents\GitHub\AJCTuto-TowerDefense\Tuto-TowerDefense" t="IncludeRecursive">
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets" t="Include">
+        <e p="Scripts" t="Include">
+          <e p="EntitySpawner.cs" t="Include" />
+          <e p="MouseInputManager.cs" t="Include" />
+          <e p="TurretTopConverterToEntity.cs" t="Include" />
+        </e>
+      </e>
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="Packages" t="ExcludeRecursive" />
+      <e p="Temp\bin" t="ExcludeRecursive" />
+      <e p="Tuto-TowerDefense.sln" t="IncludeFlat" />
+    </e>
+  </component>
+</project>
