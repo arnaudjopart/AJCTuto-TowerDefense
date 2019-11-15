@@ -9,6 +9,11 @@
         <e p="Scripts" t="Include">
           <e p="EntitySpawner.cs" t="Include" />
           <e p="MouseInputManager.cs" t="Include" />
+          <e p="Systems" t="Include">
+            <e p="MoveForwardSystem.cs" t="Include" />
+            <e p="RotateTowardTargetSystem.cs" t="Include" />
+          </e>
+          <e p="TankSpawnManager.cs" t="Include" />
           <e p="TurretTopConverterToEntity.cs" t="Include" />
         </e>
       </e>

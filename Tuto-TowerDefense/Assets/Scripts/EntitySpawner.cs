@@ -77,6 +77,11 @@ public class EntitySpawner : MonoBehaviour
                 m_speed = 5f
             });
             
+            m_entityManager.AddComponentData(tank,new TargetComponent()
+            {
+                
+            });
+            
         }
     }
 
@@ -92,6 +97,11 @@ public struct MoveToPosition : IComponentData
 {
     public float m_speed;
     public Vector3 m_destination;
+}
+
+public struct TargetComponent : IComponentData
+{
+    public Entity m_target;
 }
 
 
