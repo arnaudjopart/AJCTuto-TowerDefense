@@ -1,10 +1,12 @@
+using Unity.Mathematics;
 using UnityEngine;
 
 public class FXManager : MonoBehaviour
 {
     private static FXManager Instance;
+    public Pool m_shotFxPoolSystem;
+    public Pool m_explosionsFxPoolSystem;
 
-    public GameObject m_fxShoot;
     private void Awake()
     {
         Instance = this;
@@ -12,8 +14,15 @@ public class FXManager : MonoBehaviour
 
     public static void SpawnFXAt(Vector3 _position)
     {
-        //print(_position);
-        GameObject instance = Instantiate(Instance.m_fxShoot, _position,Quaternion.identity) as GameObject;
+        
+        Instance.m_shotFxPoolSystem.ActivateFirstAvailableItemAt(_position);
         
     }
+
+    public static void SpawnExplosionAt(float3 _value)
+    {
+        Instance.m_explosionsFxPoolSystem.ActivateFirstAvailableItemAt(_value);
+    }
+
+    
 }

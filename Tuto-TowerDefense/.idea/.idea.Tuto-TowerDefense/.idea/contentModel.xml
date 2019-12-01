@@ -8,6 +8,10 @@
       <e p="Assets" t="Include">
         <e p="BarrelNoseCompData_authoring.cs" t="Include" />
         <e p="EnemyManager.cs" t="Include" />
+        <e p="InputManager.cs" t="Include" />
+        <e p="Pool.cs" t="Include" />
+        <e p="PoolItem.cs" t="Include" />
+        <e p="PoolItemLifeTime.cs" t="Include" />
         <e p="Scripts" t="Include">
           <e p="FXManager.cs" t="Include" />
           <e p="MouseInputManager.cs" t="Include" />

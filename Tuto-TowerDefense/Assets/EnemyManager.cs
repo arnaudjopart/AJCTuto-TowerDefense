@@ -9,14 +9,24 @@ public class EnemyManager : MonoBehaviour
 {
     public SpawnerECS m_entitySpawner;
 
+    public int m_nbOfInstanceToSpawn;
+
+    
+    public float m_minDistance;
+    public float m_maxDistance;
     // Start is called before the first frame update
     void Start()
     {
-        Vector3[] spawnPositions = new Vector3[1000];
+        SpawnEnemies();
+    }
+
+    private void SpawnEnemies()
+    {
+        Vector3[] spawnPositions = new Vector3[m_nbOfInstanceToSpawn];
         for (int i = 0; i < spawnPositions.Length; i++)
         {
-            float randomAngle = UnityEngine.Random.Range(0, Mathf.PI*2);
-            float randomDistance = UnityEngine.Random.Range(50, 300);
+            float randomAngle = UnityEngine.Random.Range(0, Mathf.PI * 2);
+            float randomDistance = UnityEngine.Random.Range(m_minDistance, m_maxDistance);
             Vector3 spawPosition = new Vector3(randomDistance * math.sin(randomAngle), 0,
                 randomDistance * math.cos(randomAngle));
 
@@ -29,6 +39,9 @@ public class EnemyManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SpawnEnemies();
+        }
     }
 }

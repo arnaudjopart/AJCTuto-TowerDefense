@@ -5,6 +5,7 @@
     <explicitIncludes>
       <Path>$USER_HOME$/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.test-framework.performance@1.0.9-preview</Path>
       <Path>Library/PackageCache/com.unity.burst@1.1.2</Path>
+      <Path>Library/PackageCache/com.unity.cinemachine@2.3.4</Path>
       <Path>Library/PackageCache/com.unity.collab-proxy@1.2.16</Path>
       <Path>Library/PackageCache/com.unity.collections@0.1.1-preview</Path>
       <Path>Library/PackageCache/com.unity.entities@0.1.1-preview</Path>
@@ -13,6 +14,7 @@
       <Path>Library/PackageCache/com.unity.ide.vscode@1.1.2</Path>
       <Path>Library/PackageCache/com.unity.jobs@0.1.1-preview</Path>
       <Path>Library/PackageCache/com.unity.mathematics@1.1.0</Path>
+      <Path>Library/PackageCache/com.unity.postprocessing@2.1.7</Path>
       <Path>Library/PackageCache/com.unity.properties@0.6.2-preview</Path>
       <Path>Library/PackageCache/com.unity.rendering.hybrid@0.1.1-preview</Path>
       <Path>Library/PackageCache/com.unity.test-framework@1.0.13</Path>
@@ -23,6 +25,7 @@
     </explicitIncludes>
     <explicitExcludes>
       <Path>.idea</Path>
+      <Path>Build</Path>
       <Path>Library</Path>
       <Path>Logs</Path>
       <Path>Temp</Path>

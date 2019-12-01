@@ -77,7 +77,7 @@ public class SpawnerECS : MonoBehaviour
             // Pour la partie #2
             m_entityManager.AddComponentData(entity, new Health()
             {
-                Value = 50
+                Value = 30
             });
         }
     }
@@ -279,7 +279,7 @@ public class TargetDebugSystem : ComponentSystem
     }
 }
 
-//[UpdateInGroup(typeof(LateSimulationSystemGroup))]
+[UpdateInGroup(typeof(LateSimulationSystemGroup))]
 public class TurretInitSystem : ComponentSystem
 {
     protected override void OnUpdate()
@@ -287,7 +287,7 @@ public class TurretInitSystem : ComponentSystem
        Entities.WithAll<InitComp>().ForEach((Entity _entity, ref PrefabStructure _prefabStructure) =>
             {
                 //Partie 2
-                /*DynamicBuffer<Child> children = EntityManager.GetBuffer<Child>(_entity);
+                DynamicBuffer<Child> children = EntityManager.GetBuffer<Child>(_entity);
                 Debug.Log(children.Length);
                 foreach (var child in children)
                 {
@@ -295,7 +295,7 @@ public class TurretInitSystem : ComponentSystem
                     {
                         _prefabStructure.m_barrelTip = child.Value;
                     }
-                }*/
+                }
                 PostUpdateCommands.RemoveComponent(_entity, typeof(InitComp));
             });
     }
@@ -314,7 +314,7 @@ public class TurretFireSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        /*Entities.WithNone(typeof(ReloadComponent)).ForEach((Entity _entity, ref WeaponComponentData _weaponComponent) =>
+        Entities.WithNone(typeof(ReloadComponent)).ForEach((Entity _entity, ref WeaponComponentData _weaponComponent) =>
         {
             if (!EntityManager.Exists(_weaponComponent.m_target)) return;
             
@@ -326,7 +326,7 @@ public class TurretFireSystem : ComponentSystem
                 m_target = _weaponComponent.m_target,
                 m_damages = 10
             });
-        });*/
+        });
     }
 }
 
@@ -361,14 +361,14 @@ public class ApplyShootSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        //ComponentDataFromEntity<Health> healths = GetComponentDataFromEntity<Health>(true);
+        //ComponentDataFromEntity<Translation> translations = GetComponentDataFromEntity<Translation>(true);
         
         while (SpawnerECS.TurretShootActionsNativeQueue.TryDequeue(out var action))
         {
             
             if (EntityManager.Exists(action.m_target) && EntityManager.Exists(action.m_turret))
             {
-                Debug.Log("ApplyShootSystem");
+                //Debug.Log("ApplyShootSystem");
                 if (EntityManager.HasComponent<Health>(action.m_target))
                 {
                     Vector3 fxSpawnPosition = GetSpawnPosition(action.m_turret);
@@ -381,6 +381,7 @@ public class ApplyShootSystem : ComponentSystem
 
                     if (enemyHealth.Value <= 0)
                     {
+                        FXManager.SpawnExplosionAt(EntityManager.GetComponentData<Translation>(action.m_target).Value);
                         EntityManager.DestroyEntity(action.m_target);
                     }
                     else
