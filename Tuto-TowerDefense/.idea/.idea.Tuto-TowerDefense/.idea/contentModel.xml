@@ -10,8 +10,12 @@
           <e p="EntitySpawner.cs" t="Include" />
           <e p="MouseInputManager.cs" t="Include" />
           <e p="Systems" t="Include">
+            <e p="CheckIfNoTargetSystem.cs" t="Include" />
+            <e p="FindTargetSystem.cs" t="Include" />
             <e p="MoveForwardSystem.cs" t="Include" />
             <e p="RotateTowardTargetSystem.cs" t="Include" />
+            <e p="TargetDebugDrawerSystem.cs" t="Include" />
+            <e p="TurretInitializerSystem.cs" t="Include" />
           </e>
           <e p="TankSpawnManager.cs" t="Include" />
           <e p="TurretTopConverterToEntity.cs" t="Include" />
