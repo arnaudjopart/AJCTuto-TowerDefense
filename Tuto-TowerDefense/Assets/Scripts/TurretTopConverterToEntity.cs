@@ -16,11 +16,11 @@ public class TurretTopConverterToEntity : MonoBehaviour, IConvertGameObjectToEnt
         {
             m_rotationSpeed = 1
         };
-        var initComp = new InitComponent();
+        
         
         dstManager.AddComponentData(entity, weapon);
         dstManager.AddComponentData(entity, rotationToward);
-        dstManager.AddComponentData(entity, initComp);
+        
     }
 }
 
@@ -34,7 +34,4 @@ public struct Weapon : IComponentData
     public float m_maxDetectionDistance;
 }
 
-public struct InitComponent : IComponentData
-{
-    
-}
+

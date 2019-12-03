@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f6e51d83-ff48-4a16-a87e-1fd27a1b6e04" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tuto-TowerDefense/.idea/contentModel.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tuto-TowerDefense/.idea/contentModel.xml" afterDir="false" />
+    <list default="true" id="da31d339-371f-44b7-b935-11bfb0cfe98d" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.Tuto-TowerDefense/.idea/indexLayout.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tuto-TowerDefense/.idea/indexLayout.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Tuto-TowerDefense/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Tuto-TowerDefense/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/TurretTopConverterToEntity.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/TurretTopConverterToEntity.cs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -17,91 +17,61 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Assets/Scripts/TurretTopConverterToEntity.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="750">
-              <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
+            <state relative-caret-position="175">
+              <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
               <folding>
-                <marker date="1573762839636" expanded="false" signature="6:100" ph="..." />
-                <marker date="1573762839636" expanded="true" signature="212:769" ph="{...}" />
-                <marker date="1573762839636" expanded="true" signature="324:767" ph="{...}" />
-                <marker date="1573762839636" expanded="true" signature="371:422" ph="{...}" />
-                <marker date="1573762839636" expanded="true" signature="495:538" ph="{...}" />
-                <marker date="1573762839636" expanded="true" signature="831:869" ph="{...}" />
-                <marker date="1573762839636" expanded="true" signature="908:953" ph="{...}" />
-                <marker date="1573762839636" expanded="true" signature="999:1008" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="26">
-              <caret line="64" column="83" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="83" />
-              <folding>
-                <marker date="1573763310835" expanded="false" signature="6:163" ph="..." />
-                <marker date="1573763310835" expanded="true" signature="207:2785" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="349:415" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="502:822" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="927:1576" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="1207:1540" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="1634:1753" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="1809:1926" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="1984:2739" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="2104:2733" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="2262:2315" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="2403:2435" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="2532:2576" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="2676:2708" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="2823:2832" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="2879:2943" ph="{...}" />
-                <marker date="1573763310835" expanded="true" signature="2991:3023" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Systems/RotateTowardTargetSystem.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="650">
-              <caret line="31" column="1" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
-              <folding>
-                <marker date="1573763809212" expanded="false" signature="6:149" ph="..." />
-                <marker date="1573763809212" expanded="true" signature="206:1142" ph="{...}" />
-                <marker date="1573763809212" expanded="true" signature="247:1140" ph="{...}" />
-                <marker date="1573763809212" expanded="true" signature="580:1132" ph="{...}" />
-                <marker date="1573763809212" expanded="true" signature="696:804" ph="{...}" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/TankSpawnManager.cs">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="17" column="9" lean-forward="true" selection-start-line="17" selection-start-column="9" selection-end-line="17" selection-end-column="9" />
-              <folding>
-                <marker date="1573764260571" expanded="false" signature="6:78" ph="..." />
-                <marker date="1573764260571" expanded="true" signature="125:965" ph="{...}" />
-                <marker date="1573764260571" expanded="true" signature="356:958" ph="{...}" />
-                <marker date="1573764260571" expanded="true" signature="490:879" ph="{...}" />
+                <marker date="1575407635118" expanded="true" signature="6:100" ph="..." />
+                <marker date="1575407635118" expanded="true" signature="212:688" ph="{...}" />
+                <marker date="1575407635118" expanded="true" signature="324:686" ph="{...}" />
+                <marker date="1575407635118" expanded="true" signature="371:422" ph="{...}" />
+                <marker date="1575407635118" expanded="true" signature="495:538" ph="{...}" />
+                <marker date="1575407635118" expanded="true" signature="750:788" ph="{...}" />
+                <marker date="1575407635118" expanded="true" signature="827:872" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/Assets/Scripts/Systems/MoveForwardSystem.cs">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="15" column="93" selection-start-line="15" selection-start-column="93" selection-end-line="15" selection-end-column="93" />
+            <state relative-caret-position="2525">
+              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
               <folding>
-                <marker date="1573764519084" expanded="true" signature="6:149" ph="..." />
-                <marker date="1573764519084" expanded="true" signature="199:598" ph="{...}" />
-                <marker date="1573764519084" expanded="true" signature="240:596" ph="{...}" />
-                <marker date="1573764519084" expanded="true" signature="402:588" ph="{...}" />
+                <marker date="1575406847892" expanded="false" signature="6:163" ph="..." />
+                <marker date="1575406847892" expanded="true" signature="207:2785" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="349:415" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="502:822" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="927:1576" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="1207:1540" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="1634:1753" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="1809:1926" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="1984:2739" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="2104:2733" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="2262:2315" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="2403:2435" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="2532:2576" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="2676:2708" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="2823:2832" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="2879:2943" ph="{...}" />
+                <marker date="1575406847892" expanded="true" signature="2991:3023" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Assets/Scripts/MouseInputManager.cs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="275">
+              <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+              <folding>
+                <marker date="1575406847894" expanded="false" signature="6:78" ph="..." />
+                <marker date="1575406847894" expanded="true" signature="126:878" ph="{...}" />
+                <marker date="1575406847894" expanded="true" signature="353:374" ph="{...}" />
+                <marker date="1575406847894" expanded="true" signature="432:876" ph="{...}" />
+                <marker date="1575406847894" expanded="true" signature="479:870" ph="{...}" />
+                <marker date="1575406847894" expanded="true" signature="718:860" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -113,26 +83,27 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/RotateTowardTargetSystem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Entities/ComponentSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TankSpawnManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/MoveForwardSystem.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Transforms/Translation.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Transforms/LocalToWorld.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Entities/ComponentSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Entities/Iterators/ComponentDataFromEntity.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/RotateTowardTargetSystem.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Transforms/Translation.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/Systems/MoveForwardSystem.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/TurretTopConverterToEntity.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MouseInputManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Transforms/LocalToWorld.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Entities/EntityComponentStoreDebug.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/MouseInputManager.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/Assets/Scripts/TurretTopConverterToEntity.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/MouseInputManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Systems/RotateTowardTargetSystem.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/TankSpawnManager.cs" />
         <option value="$PROJECT_DIR$/Assets/Scripts/Systems/MoveForwardSystem.cs" />
+        <option value="$PROJECT_DIR$/Assets/Scripts/TurretTopConverterToEntity.cs" />
       </list>
     </option>
   </component>
@@ -144,11 +115,11 @@
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-2" />
-    <option name="y" value="232" />
-    <option name="width" value="1694" />
-    <option name="height" value="1017" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="-8" />
+    <option name="y" value="-8" />
+    <option name="width" value="1936" />
+    <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -199,18 +170,19 @@
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f6e51d83-ff48-4a16-a87e-1fd27a1b6e04" name="Default Changelist" comment="" />
+      <changelist id="da31d339-371f-44b7-b935-11bfb0cfe98d" name="Default Changelist" comment="" />
       <created>1573681496781</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1573681496781</updated>
       <workItem from="1573681507561" duration="2041000" />
       <workItem from="1573762963434" duration="1565000" />
+      <workItem from="1575406961715" duration="871000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="3665000" />
+    <option name="totallyTimeSpent" value="4592000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -222,7 +194,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1096" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24986985" />
@@ -291,71 +263,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MouseInputManager.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="16" column="5" selection-start-line="16" selection-start-column="5" selection-end-line="16" selection-end-column="5" />
-          <folding>
-            <marker date="1573762839634" expanded="false" signature="6:78" ph="..." />
-            <marker date="1573762839634" expanded="true" signature="126:878" ph="{...}" />
-            <marker date="1573762839634" expanded="true" signature="353:374" ph="{...}" />
-            <marker date="1573762839634" expanded="true" signature="432:876" ph="{...}" />
-            <marker date="1573762839634" expanded="true" signature="479:870" ph="{...}" />
-            <marker date="1573762839634" expanded="true" signature="718:860" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Transforms/LocalToWorld.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TurretTopConverterToEntity.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="750">
-          <caret line="33" column="40" selection-start-line="33" selection-start-column="40" selection-end-line="33" selection-end-column="40" />
-          <folding>
-            <marker date="1573762839636" expanded="false" signature="6:100" ph="..." />
-            <marker date="1573762839636" expanded="true" signature="212:769" ph="{...}" />
-            <marker date="1573762839636" expanded="true" signature="324:767" ph="{...}" />
-            <marker date="1573762839636" expanded="true" signature="371:422" ph="{...}" />
-            <marker date="1573762839636" expanded="true" signature="495:538" ph="{...}" />
-            <marker date="1573762839636" expanded="true" signature="831:869" ph="{...}" />
-            <marker date="1573762839636" expanded="true" signature="908:953" ph="{...}" />
-            <marker date="1573762839636" expanded="true" signature="999:1008" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="26">
-          <caret line="64" column="83" selection-start-line="64" selection-start-column="54" selection-end-line="64" selection-end-column="83" />
-          <folding>
-            <marker date="1573763310835" expanded="false" signature="6:163" ph="..." />
-            <marker date="1573763310835" expanded="true" signature="207:2785" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="349:415" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="502:822" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="927:1576" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="1207:1540" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="1634:1753" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="1809:1926" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="1984:2739" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="2104:2733" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="2262:2315" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="2403:2435" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="2532:2576" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="2676:2708" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="2823:2832" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="2879:2943" ph="{...}" />
-            <marker date="1573763310835" expanded="true" signature="2991:3023" ph="{...}" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Assets/Scripts/Systems/RotateTowardTargetSystem.cs">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="650">
@@ -392,6 +299,84 @@
             <marker date="1573764519084" expanded="true" signature="199:598" ph="{...}" />
             <marker date="1573764519084" expanded="true" signature="240:596" ph="{...}" />
             <marker date="1573764519084" expanded="true" signature="402:588" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Entities/Iterators/ComponentDataFromEntity.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3250">
+          <caret line="130" selection-start-line="130" selection-end-line="130" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Entities/ComponentSystem.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="832" column="32" selection-start-line="832" selection-start-column="32" selection-end-line="832" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/MouseInputManager.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="275">
+          <caret line="13" column="20" selection-start-line="13" selection-start-column="20" selection-end-line="13" selection-end-column="20" />
+          <folding>
+            <marker date="1575406847894" expanded="false" signature="6:78" ph="..." />
+            <marker date="1575406847894" expanded="true" signature="126:878" ph="{...}" />
+            <marker date="1575406847894" expanded="true" signature="353:374" ph="{...}" />
+            <marker date="1575406847894" expanded="true" signature="432:876" ph="{...}" />
+            <marker date="1575406847894" expanded="true" signature="479:870" ph="{...}" />
+            <marker date="1575406847894" expanded="true" signature="718:860" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.entities@0.1.1-preview/Unity.Transforms/LocalToWorld.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/TurretTopConverterToEntity.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="175">
+          <caret line="7" column="1" lean-forward="true" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+          <folding>
+            <marker date="1575407635118" expanded="true" signature="6:100" ph="..." />
+            <marker date="1575407635118" expanded="true" signature="212:688" ph="{...}" />
+            <marker date="1575407635118" expanded="true" signature="324:686" ph="{...}" />
+            <marker date="1575407635118" expanded="true" signature="371:422" ph="{...}" />
+            <marker date="1575407635118" expanded="true" signature="495:538" ph="{...}" />
+            <marker date="1575407635118" expanded="true" signature="750:788" ph="{...}" />
+            <marker date="1575407635118" expanded="true" signature="827:872" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Assets/Scripts/EntitySpawner.cs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2525">
+          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
+          <folding>
+            <marker date="1575406847892" expanded="false" signature="6:163" ph="..." />
+            <marker date="1575406847892" expanded="true" signature="207:2785" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="349:415" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="502:822" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="927:1576" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="1207:1540" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="1634:1753" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="1809:1926" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="1984:2739" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="2104:2733" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="2262:2315" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="2403:2435" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="2532:2576" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="2676:2708" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="2823:2832" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="2879:2943" ph="{...}" />
+            <marker date="1575406847892" expanded="true" signature="2991:3023" ph="{...}" />
           </folding>
         </state>
       </provider>
