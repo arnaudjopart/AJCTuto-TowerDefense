@@ -7,18 +7,18 @@ public class ActivateTurretFireSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        Entities.WithAll<Weapon>().WithNone(typeof(IsShooting)).ForEach((Entity _entity, ref Translation _translation,
+        Entities.WithAll<Weapon>().WithNone(typeof(IsShootingTag),typeof(IsReloadingTag)).ForEach((Entity _entity,
             ref RotationTowardTargetComponent _rotationToward, ref LocalToWorld _localToWorld) =>
         {
             if (EntityManager.Exists(_rotationToward.m_target))
             {
-                Translation targetTranslation = EntityManager.GetComponentData<Translation>(_rotationToward.m_target);
-                float3 targetDirectionInWorldSpace = targetTranslation.Value - _localToWorld.Position;
+                var targetTranslation = EntityManager.GetComponentData<Translation>(_rotationToward.m_target);
+                var targetDirectionInWorldSpace = targetTranslation.Value - _localToWorld.Position;
                 if (!(Vector3.Angle(_localToWorld.Forward, targetDirectionInWorldSpace) < 10)) return;
-                Debug.Log("ReadyToShoot");
-                PostUpdateCommands.AddComponent(_entity,new IsShooting());
+                PostUpdateCommands.AddComponent(_entity,new IsShootingTag());
             }
            
         });
     }
 }
+

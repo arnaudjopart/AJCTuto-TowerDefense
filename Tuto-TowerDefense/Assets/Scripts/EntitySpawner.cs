@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel.Design.Serialization;
 using Unity.Collections;
 using Unity.Entities;
 using Unity.Transforms;
@@ -10,10 +11,13 @@ public class EntitySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject m_turretPrefab;
     [SerializeField] private GameObject m_tankPrefab;
-    
+
+    public Material m_material;
     private void Awake()
     {
+        Instance = this;
         m_entityManager = World.Active.EntityManager;
+        TurretShootActionsQueue = new NativeQueue<TurretShootAction>(Allocator.Persistent);
     }
 
     private Entity CreateEntityFromPrefab(GameObject _prefab, Vector3 _spawnPosition)
@@ -86,7 +90,28 @@ public class EntitySpawner : MonoBehaviour
     }
 
     private EntityManager m_entityManager;
+
+    public static Material GetShootMaterial()
+    {
+        return Instance.m_material;
+    }
+
+    private static EntitySpawner Instance;
+    public static NativeQueue<TurretShootAction> TurretShootActionsQueue;
+    public Material m_defaultTurretMaterial;
+
+    public static Material GetDefaultTurretMaterial()
+    {
+        return Instance.m_defaultTurretMaterial;
+    }
 }
+
+public struct TurretShootAction
+{
+    public Entity m_shooter;
+    public Entity m_target;
+}
+
 
 public struct Enemy : IComponentData
 {

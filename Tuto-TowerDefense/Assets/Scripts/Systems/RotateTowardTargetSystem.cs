@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.InteropServices;
 using Unity.Entities;
 using Unity.Mathematics;
 using Unity.Transforms;
@@ -48,6 +49,7 @@ public class RotateTowardTargetSystem : ComponentSystem
                 quaternion relativeRotationOfTurret =
                     math.mul(targetRotationInWorldSpace, math.inverse(parentWorldRotation));
                 
+                
                 _rotation.Value = Quaternion.Lerp(_rotation.Value, relativeRotationOfTurret, _rotationTowardTarget
                 .m_rotationSpeed*Time.deltaTime);
             }
@@ -55,14 +57,4 @@ public class RotateTowardTargetSystem : ComponentSystem
         
     }
 }
-
-
-
-
-
-
-
-
-
-
 

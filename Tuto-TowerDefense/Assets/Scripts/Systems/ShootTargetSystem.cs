@@ -5,7 +5,7 @@ public class ShootTargetSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        Entities.WithAll<IsShooting>().ForEach((Entity _entity, ref Weapon _weapon) =>
+        Entities.WithAll<IsShootingTag>().ForEach((Entity _entity, ref Weapon _weapon) =>
         {
             RenderMesh mesh = EntityManager.GetSharedComponentData<RenderMesh>(_entity);
             mesh.material = EntitySpawner.GetShootMaterial();
@@ -18,4 +18,8 @@ public class ShootTargetSystem : ComponentSystem
             
         });
     }
+}
+
+public struct IsShootingTag : IComponentData
+{
 }
