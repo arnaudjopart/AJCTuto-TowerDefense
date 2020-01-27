@@ -7,7 +7,7 @@ public class ActivateTurretFireSystem : ComponentSystem
 {
     protected override void OnUpdate()
     {
-        Entities.WithAll<Weapon>().WithNone(typeof(IsShootingTag),typeof(IsReloadingTag)).ForEach((Entity _entity,
+        Entities.WithAll<Weapon>().WithNone(typeof(IsShootingTag),typeof(IsReloading)).ForEach((Entity _entity,
             ref RotationTowardTargetComponent _rotationToward, ref LocalToWorld _localToWorld) =>
         {
             if (EntityManager.Exists(_rotationToward.m_target))

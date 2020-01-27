@@ -153,6 +153,9 @@ MonoBehaviour:
     type: 3}
   m_tankPrefab: {fileID: 183580102052119235, guid: 1658955f08effaf4294129cb92ab30d0,
     type: 3}
+  m_material: {fileID: 2100000, guid: 02b92666da9e7ef4c949e1699cf5c0cf, type: 2}
+  m_defaultTurretMaterial: {fileID: 2100000, guid: 76423a82f9c0241df9f051e3c0f4722d,
+    type: 2}
 --- !u!4 &34276503
 Transform:
   m_ObjectHideFlags: 0

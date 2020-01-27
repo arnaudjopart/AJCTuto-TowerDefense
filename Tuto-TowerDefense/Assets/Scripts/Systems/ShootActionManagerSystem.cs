@@ -10,7 +10,7 @@ public class ShootActionManagerSystem : ComponentSystem
             
             if (EntityManager.Exists(shootAction.m_shooter) && EntityManager.Exists(shootAction.m_target))
             {
-                PostUpdateCommands.AddComponent(shootAction.m_shooter,new IsReloadingTag
+                PostUpdateCommands.AddComponent(shootAction.m_shooter,new IsReloading
                 {
                     m_reloadDuration = 2f
                 });
