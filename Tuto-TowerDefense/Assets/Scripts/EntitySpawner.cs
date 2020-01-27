@@ -10,11 +10,31 @@ public class EntitySpawner : MonoBehaviour
 {
     [SerializeField] private GameObject m_turretPrefab;
     [SerializeField] private GameObject m_tankPrefab;
-    
+
+    [SerializeField] private Material m_shootMaterial;
+    [SerializeField] private Material m_defaultMaterial;
+
+    private static EntitySpawner Instance; 
     private void Awake()
     {
         m_entityManager = World.Active.EntityManager;
+
+        Instance = this;
+        
+        TurretShootActionNativeQueue = new NativeQueue<TurretShootAction>(Allocator.Persistent);
     }
+
+    public static Material GetShootingMaterial()
+    {
+        return Instance.m_shootMaterial;
+    }
+    
+    public static Material GetDefaultMaterial()
+    {
+        return Instance.m_defaultMaterial;
+    }
+    
+    
 
     private Entity CreateEntityFromPrefab(GameObject _prefab, Vector3 _spawnPosition)
     {
@@ -86,6 +106,8 @@ public class EntitySpawner : MonoBehaviour
     }
 
     private EntityManager m_entityManager;
+
+    public static NativeQueue<TurretShootAction> TurretShootActionNativeQueue;
 }
 
 public struct Enemy : IComponentData
@@ -104,6 +126,11 @@ public struct TargetComponent : IComponentData
     public Entity m_target;
 }
 
+public struct TurretShootAction
+{
+    public Entity m_shooter;
+    public Entity m_target;
+}
 
 
 
